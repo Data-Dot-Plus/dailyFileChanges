@@ -1,0 +1,12 @@
+name: daily-file-changes
+title: daily-file-changes
+username: data-dot-plus
+account: data-dot-plus
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 11246575
+bundleId: 8263265
+url: https://data-dot-plus.shinyapps.io/daily-file-changes/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

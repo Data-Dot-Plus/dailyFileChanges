@@ -9,12 +9,12 @@ ui <- function(id) {
 
   tabsetPanel(
     tabPanel(
-      "Success",
-      DTOutput(ns("success"))
+      "Classes",
+      DTOutput(ns("classes"))
     ),
     tabPanel(
-      "Best Combinations",
-      DTOutput(ns("best_combinations"))
+      "Changes",
+      DTOutput(ns("changes"))
     )
   )
 
@@ -26,10 +26,10 @@ box::use(
 )
 
 #' @export
-server <- function(id, rct_df_success, rct_df_best_combination) {
+server <- function(id, rct_df_classes, rct_df_changes) {
   moduleServer(id, function(input, output, session) {
-    output$success <- renderDataTable(rct_df_success())
+    output$classes <- renderDataTable(rct_df_classes())
 
-    output$best_combinations <- renderDataTable(rct_df_best_combination())
+    output$changes <- renderDataTable(rct_df_changes())
   })
 }

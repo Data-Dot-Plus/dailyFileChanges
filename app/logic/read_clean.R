@@ -20,7 +20,8 @@ read_clean_csv <- function(filepath) {
     janitor[clean_names],
     dplyr[pull],
     utils[head],
-    lubridate[mdy]
+    lubridate[mdy],
+    dplyr[select]
   )
 
   df <- filepath |>
@@ -32,5 +33,8 @@ read_clean_csv <- function(filepath) {
     head(1) |>
     mdy()
 
-  list(run_date = run_date, data = df)
+  df_thin <- df |>
+    select(-run_date)
+
+  list(run_date = run_date, data = df_thin)
 }

@@ -6,7 +6,7 @@ box::use(
 ui <- function(id) {
   ns <- NS(id)
 
-  downloadButton(ns("download"), "Download best combinations")
+  downloadButton(ns("download"), "Download changes")
 }
 
 box::use(
@@ -15,12 +15,12 @@ box::use(
 )
 
 #' @export
-server <- function(id, rct_df_best_combination) {
+server <- function(id, rct_df_changes) {
   moduleServer(id, function(input, output, session) {
     output$download <- downloadHandler(
-      filename = "best_combination_subset.xlsx",
+      filename = "changes.xlsx",
       content = function(file) {
-        write.xlsx(rct_df_best_combination(), file)
+        write.xlsx(rct_df_changes(), file)
       }
     )
   })
