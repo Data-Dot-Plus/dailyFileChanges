@@ -1,11 +1,13 @@
 find_changes <- function(df_classes) {
   box::use(
-    dplyr[mutate, lag, select],
+    dplyr[filter, mutate, lag, select],
+    lubridate[mdy],
     purrr[map2],
     tidyr[unnest]
   )
 
   df_classes |>
+    filter(run_date != mdy("1/1/1900")) |>
     mutate(
       changes = map2(data, lag(data), get_changes)
     ) |>

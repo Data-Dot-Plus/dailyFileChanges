@@ -25,8 +25,14 @@ read_clean_csv <- function(filepath) {
   )
 
   df <- filepath |>
-    read_csv(col_types = cols(.default = col_character())) |>
+    read_csv(col_types = cols(.default = col_character()), skip = 1) |>
     clean_names()
+
+  if (!"run_date" %in% names(df)) {
+    return(
+      list(run_date = mdy("1/1/1900"), data = data.frame(error = "No run date"))
+    )
+  }
 
   run_date <- df |>
     pull(run_date) |>
