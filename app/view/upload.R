@@ -8,9 +8,9 @@ ui <- function(id) {
 
   fileInput(
     ns("upload"),
-    "Upload the class CSV files",
+    "Upload the class CSV or XLS* files",
     multiple = TRUE,
-    accept = ".csv"
+    accept = c(".csv", ".xls*")
   )
 }
 

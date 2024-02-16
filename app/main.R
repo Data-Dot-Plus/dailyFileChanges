@@ -25,7 +25,7 @@ ui <- function(id) {
 box::use(
   shiny[moduleServer, reactive, req, renderText],
   app/view/upload,
-  app/logic/read_clean[read_csvs_clean],
+  app/logic/read_clean[read_clean],
   app/logic/find_changes[find_changes],
   app/logic/summarise_classes[summarise_classes],
   app/view/main,
@@ -41,7 +41,7 @@ server <- function(id) {
       req(rct_upload_path())
 
       rct_upload_path() |>
-        read_csvs_clean()
+        read_clean()
     })
 
     rct_df_classes_summary <- reactive({
