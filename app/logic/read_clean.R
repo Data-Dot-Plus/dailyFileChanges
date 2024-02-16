@@ -40,7 +40,7 @@ read_clean_csv <- function(filepath) {
     mdy()
 
   df_thin <- df |>
-    select(-run_date)
+    select(-c(run_date, percent, enrl, waiting))
 
   list(run_date = run_date, data = df_thin)
 }
